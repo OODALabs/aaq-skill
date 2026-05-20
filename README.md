@@ -13,22 +13,58 @@ Scores place organizations into five tiers, from AI-Nascent (0-20) through AI-Na
 ## What this repo contains
 
 ```
-SKILL.md                    # Claude skill definition (the main entry point)
+SKILL.md                    # Skill definition and entry point
 references/methodology.md   # Full scoring rubrics and dimension definitions
 references/workflow.md      # Step-by-step research and scoring process
 LICENSE                     # CC BY-NC-ND 4.0
 ```
 
-## Using the AAQ as a Claude skill
+## Using the AAQ skill
 
-This repo is packaged as a [Claude Project skill](https://docs.claude.com). To use it:
+The AAQ is packaged as a set of markdown instruction files — a `SKILL.md` entry point with supporting references. This is the same format used by a growing number of AI platforms for persistent, reusable agent skills. Any system that can ingest markdown instructions and reference documents alongside a conversation can run the AAQ.
+
+We've tested it on **Claude** (Anthropic), **ChatGPT** (OpenAI), **Perplexity**, **OpenClaw**, and **Hermes Agent**. It works on all of them. If your platform of choice lets you upload files as context or project knowledge, the AAQ will run there too.
+
+### Claude (Projects)
 
 1. Download this repo as a ZIP (Code > Download ZIP) or clone it
-2. In Claude, open a Project and go to Project Knowledge
+2. Open a Project in Claude and go to Project Knowledge
 3. Upload all four files (`SKILL.md`, `LICENSE`, `references/methodology.md`, `references/workflow.md`)
-4. Start a conversation and ask Claude to score companies on AI maturity
+4. Start a conversation and ask Claude to score companies
 
-Example prompts:
+### ChatGPT (Projects or Custom GPTs)
+
+1. Create a new Project or Custom GPT in ChatGPT
+2. Upload the four files as project knowledge or GPT knowledge files
+3. Optionally paste the contents of `SKILL.md` into the project instructions field for stronger adherence
+4. Start a conversation with a scoring prompt
+
+### Perplexity (Spaces)
+
+1. Create a new Space in Perplexity
+2. Upload the four files to the Space
+3. Set the Space's custom instructions to: "Follow the methodology in SKILL.md for all queries about AI scoring or company benchmarking"
+4. Ask your question in the Space — Perplexity will combine its live web search with the AAQ framework
+
+### OpenClaw
+
+1. Clone this repo into your OpenClaw skills directory (or copy the files into a new skill folder)
+2. OpenClaw will detect the `SKILL.md` and register it as an available skill
+3. Invoke it through your preferred messaging platform
+
+### Hermes Agent
+
+1. Clone this repo into your Hermes skills directory
+2. Hermes will index the `SKILL.md` and reference files automatically
+3. The skill is available in any connected conversation
+
+### Other platforms
+
+The pattern is the same everywhere: give the AI system access to the four files and let it read the instructions in `SKILL.md`. The methodology is written to be self-contained — it tells the AI what to ask, how to research, how to score, and what to produce.
+
+### Example prompts
+
+These work across all platforms:
 - "Score the top 8 defense contractors on AI maturity"
 - "Run an AAQ analysis on Walmart, Target, and Costco"
 - "Pick the largest companies in the pharmaceutical sector and benchmark them on AI"
